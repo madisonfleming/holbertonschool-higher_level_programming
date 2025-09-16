@@ -30,10 +30,10 @@ Tests:
     TypeError: b must be an integer
 
     Test - result is infinity and there is float overflow
-    >>> add(1, float("int"))
+    >>> add(1, float("inf"))
     Traceback (most recent call last):
     ...
-    ValueError: could not convert string to float: 'int'
+    OverflowError: cannot convert float infinity to integer
 
     Test - cannot convert NaN to int
     >>> add(1, float("nan"))
