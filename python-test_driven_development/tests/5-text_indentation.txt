@@ -15,13 +15,11 @@ Tests:
     Hello, my name is:
     <BLANKLINE>
     Maddy!
-    <BLANKLINE>
 
     >>> text_indentation("What's your address? I would love to visit")
     What's your address?
     <BLANKLINE>
     I would love to visit
-    <BLANKLINE>
 
     Test - text is not string
     >>> text_indentation(1452)
