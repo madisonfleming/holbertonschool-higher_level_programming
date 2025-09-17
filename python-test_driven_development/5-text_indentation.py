@@ -16,8 +16,13 @@ def text_indentation(text):
     """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
-    d = {'. ': '.\n\n', '? ': '?\n\n', ': ': ':\n\n'}
     result = text
-    for key, value in d.items():
-        result = result.replace(key, value)
-    print("{}".format(result), end="")
+    for char in ['.', '?', ':']:
+        result = result.replace(char, char + '\n\n')
+
+    lines = result.split('\n')
+    for line in lines:
+        line = line.strip()
+        if line:
+            print(line)
+            print()
