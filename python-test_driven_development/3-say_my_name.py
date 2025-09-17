@@ -2,13 +2,15 @@
 """
 This module includes one function to print a name
 """
+
+
 def say_my_name(first_name, last_name=""):
     """print first and last name
 
     Args:
         first_name - first argument to print
         last_name - second argument to print
-    
+
     Raise:
         TypeError: if arguments are not strings
     """
