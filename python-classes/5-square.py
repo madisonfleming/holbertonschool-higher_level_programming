@@ -35,8 +35,8 @@ class Square:
         return self.__size * self.__size
 
     def my_print(self):
-        char = '#'
-        for _ in range(self.size):
-            print((char) * self.size)
         if self.size == 0:
-            print("\n")
+            print()
+            return
+        for _ in range(self.size):
+            print('#' * self.size)
