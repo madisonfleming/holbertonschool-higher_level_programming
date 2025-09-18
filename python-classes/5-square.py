@@ -38,5 +38,5 @@ class Square:
         char = '#'
         for _ in range(self.size):
             print((char) * self.size)
-        if self.size is 0:
+        if self.size == 0:
             print("\n")
