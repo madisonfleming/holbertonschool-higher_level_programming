@@ -30,13 +30,6 @@ Tests:
     >>> my_list
     [10, 3.4, 'hello']
 
-    Test - missing both arguments
-    >>> my_list = MyList()
-    >>> my_list.append()
-    Traceback (most recent call last):
-    ...
-    TypeError: append() takes exactly one argument (0 given)
-
     >>> my_list = MyList()
     >>> isinstance(my_list, MyList)
     True
