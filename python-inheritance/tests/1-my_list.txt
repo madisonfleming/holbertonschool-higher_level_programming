@@ -1,0 +1,38 @@
+The ``MyList`` module
+======================
+
+Using ``MyList``
+-------------------
+
+
+First import ``MyList`` from the ``1-my_list`` file:
+
+    >>> MyList = __import__('1-my_list').MyList
+
+Tests:
+
+    >>> m = MyList()
+    >>> m.append(10)
+    >>> m
+    [10]
+
+    >>> m = MyList()
+    >>> m.append(10)
+    >>> m.append(3.4)
+    >>> m
+    [10, 3.4]
+
+    Test - not int
+    >>> m = MyList()
+    >>> m.append(10)
+    >>> m.append(3.4)
+    >>> m.append("hello")
+    >>> m
+    [10, 3.4, 'hello']
+
+    Test - missing both arguments
+    >>> m = MyList()
+    >>> m.append()
+    Traceback (most recent call last):
+    ...
+    TypeError: append() takes exactly one argument (0 given)
