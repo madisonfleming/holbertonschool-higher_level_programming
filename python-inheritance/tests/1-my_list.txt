@@ -11,28 +11,76 @@ First import ``MyList`` from the ``1-my_list`` file:
 
 Tests:
 
-    >>> m = MyList()
-    >>> m.append(10)
-    >>> m
+    >>> my_list = MyList()
+    >>> my_list.append(10)
+    >>> my_list
     [10]
 
-    >>> m = MyList()
-    >>> m.append(10)
-    >>> m.append(3.4)
-    >>> m
+    >>> my_list = MyList()
+    >>> my_list.append(10)
+    >>> my_list.append(3.4)
+    >>> my_list
     [10, 3.4]
 
     Test - not int
-    >>> m = MyList()
-    >>> m.append(10)
-    >>> m.append(3.4)
-    >>> m.append("hello")
-    >>> m
+    >>> my_list = MyList()
+    >>> my_list.append(10)
+    >>> my_list.append(3.4)
+    >>> my_list.append("hello")
+    >>> my_list
     [10, 3.4, 'hello']
 
     Test - missing both arguments
-    >>> m = MyList()
-    >>> m.append()
+    >>> my_list = MyList()
+    >>> my_list.append()
     Traceback (most recent call last):
     ...
     TypeError: append() takes exactly one argument (0 given)
+
+    >>> my_list = MyList()
+    >>> isinstance(my_list, MyList)
+    True
+
+    >>> isinstance(my_list, list)  
+    True
+
+    >>> my_list = MyList([3, 1, 2])
+    >>> print(my_list)
+    [3, 1, 2]
+
+    >>> my_list = MyList()
+    >>> my_list.append(5)
+    >>> my_list.append(7)
+    >>> my_list
+    [5, 7]
+
+    >>> my_list = MyList()
+    >>> my_list.append(3)
+    >>> my_list.append(1)
+    >>> my_list.append(2)
+    >>> my_list.print_sorted()
+    [1, 2, 3]
+    >>> my_list
+    [3, 1, 2]
+
+    >>> my_list = MyList()
+    >>> my_list.append(10)
+    >>> my_list.append(-4)
+    >>> my_list.append(3)
+    >>> my_list.print_sorted()
+    [-4, 3, 10]
+    >>> my_list
+    [10, -4, 3]
+
+    >>> my_list = MyList()
+    >>> my_list.print_sorted()
+    []
+
+    >>> my_list = MyList([9, 5, 1])
+    >>> sorted_list = sorted(my_list)
+    >>> my_list.print_sorted()
+    [1, 5, 9]
+    >>> my_list == [9, 5, 1] 
+    True
+    >>> sorted_list == [1, 5, 9] 
+    True
