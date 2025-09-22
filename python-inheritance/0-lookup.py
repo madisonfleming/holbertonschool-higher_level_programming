@@ -1,15 +1,13 @@
 #!/usr/bin/python3
-class object:
-    """
-    This is a parent class
+"""
+    This is a function that returns a list
+    of available attributes and methods of an object
+"""
 
-    Attributes:
-        my_attr1: single attribute
-    """
+
 def lookup(obj):
     """
-    A new instance of object to return the
-    attributes and methods of a class
+    Return the attributes and methods of an object
 
     Args:
         obj: the object to lookup
