@@ -1,7 +1,12 @@
 #!/usr/bin/python3
+"""
+This module will create an empty class
+"""
+
+
 class BaseGeometry:
     """
-    This module will create an empty class
+    This is an empty class
     """
 
     pass
