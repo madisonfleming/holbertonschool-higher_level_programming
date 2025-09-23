@@ -76,7 +76,7 @@ Tests:
     TypeError: name must be an integer
 
     >>> bg = BaseGeometry()
-    >>> bg.integer_validator("name", [3, 4])
+    >>> bg.integer_validator("name", {3, 4})
     Traceback (most recent call last):
     ...
     TypeError: name must be an integer
