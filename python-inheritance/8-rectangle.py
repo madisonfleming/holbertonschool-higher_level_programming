@@ -4,15 +4,6 @@ This module includes a parent class and subclass
 """
 
 
-class BaseGeometry:
-    """
-    This is a BaseGeometry class
-
-    Raises:
-        Exception: area() is not implemented
-    """
-
-
 class Rectangle(BaseGeometry):
     """
     This is a subclass of BaseGeometry
