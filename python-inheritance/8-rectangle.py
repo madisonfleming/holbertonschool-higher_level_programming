@@ -4,6 +4,9 @@ This module includes a parent class and subclass
 """
 
 
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+
 class Rectangle(BaseGeometry):
     """
     This is a subclass of BaseGeometry
@@ -19,7 +22,7 @@ class Rectangle(BaseGeometry):
             width: int value
             height: int value
         """
-        self.integer_validator("width", self.__width)
-        self.integer_validator("height", self.__height)
+        self.integer_validator("width", width)
+        self.integer_validator("height", height)
         self.__width = width
         self.__height = height
