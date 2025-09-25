@@ -9,20 +9,17 @@ class CountedIterator:
     """
     """
     def __init__(self, some_iterable):
+        self.items = list(some_iterable)
         self.iterator = iter(some_iterable)
         self.count = 0
 
     def __iter__(self):
-        for item in self.items:
-            yield item
+        return self
 
     def get_count(self):
         return self.count
 
     def __next__(self):
-        self.__next__ = next
+        item = next(self.iterator)
         self.count += 1
-        for item in self.iterator:
-            return item
-        else:
-            raise StopIteration
+        return item
