@@ -18,9 +18,11 @@ class VerboseList(list):
             print("Added [{}] to the list".format(item))
 
     def extend(self, item=None):
-        if item is not None:
+        try:
             super().extend(item)
             print("Extended the list with [{}] items".format(len(item)))
+        except ValueError:
+            pass
 
     def remove(self, item=None):
         if item is not None:
