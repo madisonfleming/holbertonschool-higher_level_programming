@@ -12,10 +12,9 @@ class VerboseList(list):
     def __init__(self, ml=None):
         super().__init__(ml if ml is not None else [])
 
-    def append(self, item=None):
-        if item is not None:
-            super().append(item)
-            print("Added [{}] to the list".format(item))
+    def append(self, item):
+        super().append(item)
+        print("Added [{}] to the list".format(item))
 
     def extend(self, item=None):
         try:
