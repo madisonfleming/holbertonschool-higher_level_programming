@@ -24,13 +24,13 @@ class Circle(Shape):
     """
     """
     def __init__(self, radius):
-        self.radius = radius
+        self.radius = abs(radius)
 
     def area(self):
         return math.pi * self.radius * self.radius
 
     def perimeter(self):
-        return float(2 * math.pi * self.radius)
+        return 2 * math.pi * self.radius
 
 
 class Rectangle(Shape):
