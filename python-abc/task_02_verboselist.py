@@ -28,5 +28,9 @@ class VerboseList(list):
             print("Removed [{}] from the list".format(item))
 
     def pop(self, index=-1):
-        new_pop = super().pop(index)
-        print("Popped [{}] from the list".format(new_pop))
+        try:
+            new_pop = super().pop(index)
+            print("Popped [{}] from the list".format(new_pop))
+            return new_pop
+        except IndexError:
+            pass
