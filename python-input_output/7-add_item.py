@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """
+This module adds arguments to a python list
+then saves them to a json file
 """
 
 
