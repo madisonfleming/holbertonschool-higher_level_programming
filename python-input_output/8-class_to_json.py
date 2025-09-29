@@ -6,9 +6,6 @@ serialisation of an object
 """
 
 
-import json
-
-
 def class_to_json(obj):
     """
     this function will return a structure for a
@@ -17,4 +14,4 @@ def class_to_json(obj):
     Attributes:
         obj: an instance of a class
     """
-    return json.dumps(obj.__dict__)
+    return (obj.__dict__)
