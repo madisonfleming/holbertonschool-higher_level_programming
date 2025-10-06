@@ -31,7 +31,7 @@ class CustomObject:
         try:
             with open(filename, 'wb') as file:
                 pickle.dump(self, file)
-        except FileNotFoundError:
+        except (EOFError, pickle.UnpicklingError, FileNotFoundError):
             return None
 
     @classmethod
@@ -47,5 +47,5 @@ class CustomObject:
                     return obj
                 else:
                     return None
-        except FileNotFoundError:
+        except (EOFError, pickle.UnpicklingError, FileNotFoundError):
             return None
