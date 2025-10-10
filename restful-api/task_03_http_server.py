@@ -24,7 +24,10 @@ class my_server(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write("OK".encode("utf-8"))
         else:
-            self.send_error(404, "Not Found", "Endpoint Not Found")
+            self.send_response(404)
+            self.send_header('Content-Type', 'text/plain')
+            self.end_headers()
+            self.wfile.write("Endpoint not found".encode("utf-8"))
 
 
 port = HTTPServer(('', 8000), my_server)
