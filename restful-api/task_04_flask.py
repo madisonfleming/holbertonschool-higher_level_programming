@@ -14,7 +14,7 @@ def home():
 @app.route('/data', methods=['GET'])
 def get_data():
     # user = users.get(username)
-    return jsonify(users)
+    return jsonify(list(users.keys()))
 
 
 @app.route('/status', methods=['GET'])
@@ -41,7 +41,10 @@ def create_user():
         return jsonify({"error": "User already exists"}), 400
 
     users[username] = data
-    return jsonify({"message": "User created", "user": users[username]}), 201
+    return jsonify({
+        "message": "User created",
+        "user": data
+     }), 201
 
 
 if __name__ == "__main__":
