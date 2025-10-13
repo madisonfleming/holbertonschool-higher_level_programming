@@ -3,7 +3,7 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 # remove data set for the checker
-# users = {"jane": {"name": "Jane", "age": 28, "city": "Los Angeles"}}
+users = {}
 
 
 @app.route("/", methods=["GET"])
@@ -12,9 +12,9 @@ def home():
 
 
 @app.route('/data', methods=['GET'])
-def print_user(username):
+def get_data():
     # user = users.get(username)
-    return jsonify(username)
+    return jsonify(users)
 
 
 @app.route('/status', methods=['GET'])
@@ -28,7 +28,7 @@ def get_user(username):
     if user:
         return jsonify(user)
     else:
-        return {"error": "User not found"}
+        return jsonify({"error": "User not found"}), 404
 
 
 @app.route('/add_user', methods=['POST'])
@@ -44,4 +44,5 @@ def create_user():
     return jsonify({"message": "User created", "user": users[username]}), 201
 
 
-if __name__ == "__main__": app.run()
+if __name__ == "__main__":
+    app.run()
