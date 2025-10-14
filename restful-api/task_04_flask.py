@@ -5,29 +5,29 @@ app = Flask(__name__)
 # remove data set for the checker
 users = {}
 
-
 @app.route("/")
 def home():
     return "Welcome to the Flask API!"
 
 
-@app.route('/data', methods=['GET'])
+@app.route('/data')
 def get_data():
-    # user = users.get(username)
     return jsonify(list(users.keys()))
 
 
-@app.route('/status', methods=['GET'])
+@app.route('/status')
 def get_status():
     return "OK"
 
 
-@app.route('/users/<username>', methods=['GET'])
+@app.route('/users/<username>')
 def get_user(username):
     if username not in users:
         return jsonify({"error": "User not found"}), 404
+
     output = users[username]
     output["username"] = username
+
     return jsonify(output)
 
 @app.route('/add_user', methods=['POST'])
@@ -44,7 +44,7 @@ def add_user():
     users[username] = data
 
     return jsonify({
-        "message": "User created",
+        "message": "User added",
         "user": data
      }), 201
 
