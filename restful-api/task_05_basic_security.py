@@ -6,8 +6,8 @@ from flask_jwt_extended import (
 )
 
 import os
-from dotenv import load_dotenv
-load_dotenv()
+# from dotenv import load_dotenv
+# load_dotenv()
 
 app = Flask(__name__)
 
