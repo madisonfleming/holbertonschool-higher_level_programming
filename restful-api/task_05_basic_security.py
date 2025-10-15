@@ -28,10 +28,10 @@ basic_auth = HTTPBasicAuth()
 
 @basic_auth.verify_password
 def verify_basic(username, password):
-    u = USERS.get(username)
-    if not u:
+    user = USERS.get(username)
+    if not user:
         return None
-    if not check_password_hash(u["password"], password):
+    if not check_password_hash(user["password"], password):
         return None
     return username
 
@@ -51,13 +51,14 @@ def basic_protected():
 def login():
     if not request.is_json:
         return jsonify({"error": "Expected JSON"}), 400
-    data = request.get_json(silent=True) or {}
+    data = request.get_json()
     username = data.get("username")
     password = data.get("password")
     user = USERS.get(username)
     if not user or not check_password_hash(user["password"], password):
         return jsonify({"message": "Invalid username or password"}), 401
-    access_token = create_access_token(identity=username)
+    access_token = create_access_token(identity={
+        "username": username, "role": user["role"]})
     return jsonify({"access_token": access_token})
 
 
@@ -71,7 +72,7 @@ def jwt_protected():
 @jwt_required()
 def admin_only():
     current_user = get_jwt_identity()
-    if current_user not in USERS or USERS[current_user]["role"] != "admin":
+    if current_user["role"] != "admin":
         return jsonify({"error": "Admin access required"}), 403
     return "Admin Access: Granted"
 
