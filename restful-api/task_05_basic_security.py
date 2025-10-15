@@ -11,7 +11,9 @@ import os
 
 app = Flask(__name__)
 
-app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
+app.config["JWT_SECRET_KEY"] = "JWT-SECRET-KEY"
+basic_auth = HTTPBasicAuth()
+
 jwt = JWTManager(app)
 
 USERS = {
@@ -23,17 +25,12 @@ USERS = {
                "role": "admin"},
 }
 
-basic_auth = HTTPBasicAuth()
-
 
 @basic_auth.verify_password
 def verify_basic(username, password):
     user = USERS.get(username)
-    if not user:
-        return None
-    if not check_password_hash(user["password"], password):
-        return None
-    return username
+    if user and check_password_hash(user["password"], password):
+        return user
 
 
 @app.get("/")
@@ -52,13 +49,12 @@ def login():
     if not request.is_json:
         return jsonify({"error": "Expected JSON"}), 400
     data = request.get_json()
-    username = data.get("username")
-    password = data.get("password")
-    user = USERS.get(username)
-    if not user or not check_password_hash(user["password"], password):
+    # username = data.get("username")
+    # password = data.get("password")
+    # user = USERS.get(username)
+    if data["username"] not in USERS or not check_password_hash(USERS[data["username"]]["password"], data["password"]):
         return jsonify({"message": "Invalid username or password"}), 401
-    access_token = create_access_token(identity={
-        "username": username, "role": user["role"]})
+    access_token = create_access_token(identity=data["username"])
     return jsonify({"access_token": access_token})
 
 
@@ -72,7 +68,7 @@ def jwt_protected():
 @jwt_required()
 def admin_only():
     current_user = get_jwt_identity()
-    if current_user["role"] != "admin":
+    if current_user not in USERS or USERS[current_user]["role"] != "admin":
         return jsonify({"error": "Admin access required"}), 403
     return "Admin Access: Granted"
 
