@@ -20,5 +20,10 @@ if __name__ == "__main__":
                    ORDER BY cities.id ASC""".format(state_name))
     result = cursor.fetchall()
     # result = str(result).replace("()", "")
+    i = 0
     for city in result:
-        print("{}, ".format(city[0]), end="")
+        print("{}".format(city[0]), end="")
+        i = i + 1
+        if i != len(result):
+            print(", ", end="")
+    print()
