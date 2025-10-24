@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" List all states from the database where name starts with N """
+""" List all states from the database safe from MySQL injection """
 if __name__ == "__main__":
     import MySQLdb
     import sys
@@ -8,7 +8,7 @@ if __name__ == "__main__":
                          password=sys.argv[2], database=sys.argv[3])
     cursor = db.cursor()
     cursor.execute("""SELECT * FROM states
-                   WHERE name LIKE BINARY '{}'
+                   WHERE BINARY name = '{}'
                    ORDER BY id ASC""".format(sys.argv[4]))
     result = cursor.fetchall()
     for row in result:
