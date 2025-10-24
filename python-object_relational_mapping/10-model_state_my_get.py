@@ -26,11 +26,3 @@ if __name__ == "__main__":
     else:
         for state in instance:
             print("{}".format(state.id))
-
-"""
-    instance = session.query(State).first()
-    if instance is None:
-        print("Nothing")
-    else:
-        print("{}: {}".format(instance.id, instance.name))
-"""
