@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""Change the name of a State Object
-from the database using SQLalchemy
+"""List all State objects that contain the
+letter 'a' from the database using SQLalchemy
 """
 
 
@@ -16,6 +16,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    instance = session.query(State).where(State.id == 2).limit(1)
-    instance.name = "New Mexico"
+    instance = session.query(State).filter(State.name.contains('a')).all()
+    for state in instance:
+        session.delete(state)
     session.commit()
