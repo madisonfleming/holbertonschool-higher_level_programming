@@ -1,4 +1,3 @@
-#!/usr/bin/node
 window.onload = function () {
   const hello = document.getElementById('hello');
   fetch('https://hellosalut.stefanbohacek.com/?lang=fr')

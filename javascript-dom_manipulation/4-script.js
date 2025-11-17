@@ -1,4 +1,3 @@
-#!/usr/bin/node
 const addItem = document.getElementById('add_item');
 const myList = document.querySelector('ul.my_list');
 
