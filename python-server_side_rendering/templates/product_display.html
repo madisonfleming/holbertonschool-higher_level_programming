@@ -1,0 +1,33 @@
+<!doctype html>
+   <html lang="en">
+   <head>
+       <title>My Flask App</title>
+   </head>
+   <body>
+    {% include 'header.html' %}
+
+       <h1>Welcome to My Flask App</h1>
+       <p>This is a table of products.</p>
+       <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+        </tr>
+        {% if products %}
+                {% for p in products %}
+        <tr>
+            <td> {{ p.id or p["id"] }} </td>
+            <td> {{ p.name or p["name"] }} </td>
+            <td> {{ p.category or p["category"] }} </td>
+            <td> {{ p.price or p["price"] }} </td>
+        </tr>
+            {% endfor %}
+       {% else %}
+            <p>No products available.</p>
+        {% endif %}
+        </table>
+       {% include 'footer.html' %}
+   </body>
+   </html>
