@@ -46,7 +46,7 @@ def products():
     if product_id:
         filtered = [p for p in products if str(p.get("id")) == str(product_id)]
         if not filtered:
-            error_message = "Id not found"
+            error_message = "Product not found"
             return render_template("product_display.html",
                                    products=products,
                                    error_message=error_message)
