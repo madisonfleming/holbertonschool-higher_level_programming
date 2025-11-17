@@ -28,6 +28,9 @@
             <p>No products available.</p>
         {% endif %}
         </table>
+        {% if error_message %}
+            {{ error_message }}
+        {% endif %}
        {% include 'footer.html' %}
    </body>
    </html>
