@@ -1,6 +1,7 @@
-***Everything is an Object - Understanding Pythons Data Model***
+## Everything is an Object - Understanding Pythons Data Model
+<img width="1200" height="627" alt="1622566494227" src="https://github.com/user-attachments/assets/684b1984-6ea7-41c9-bccb-1a21bf4c7956" />
 
-Everything is an object. This is the foundation for understanding how variables, memory, types and data manipulation work. Whether handling integers, lists, or a user-defined class, python treats all of them as objects stored in memory, each with a type and an indentifier. 
+This is the foundation for understanding how variables, memory, types and data manipulation work. Whether handling integers, lists, or a user-defined class, python treats all of them as objects stored in memory, each with a type and an indentifier. 
 
 This article will dive into how python manages objects internally and how mutability, referencing, aliasing, and functions calls work under the hood.
 
@@ -40,21 +41,23 @@ print(type(x)) # prints <class 'int'>
 ### Immutable objects: <br>
 Objects that can not be changed after creation eg int, float, str, tuple, bytes, forzenset <br>
 If an immutable variable is changed, Python will create a new object <br>
-Mutable Objects: <br>
-Objects that can be changed in place without changing their identity eg list, dict, set, bytearray, user-defined instances.
 <br> below is an example of immutable integer assignment. when we place a new value onto 'b', python will create a new int object and make 'b' reference it. 'a' will remain unchanged.
 ```python
 a = 1
 b = a
 ```
-![alt text](image.png)
+<img width="239" height="141" alt="image" src="https://github.com/user-attachments/assets/4cfd7cc5-c1a6-406c-a707-98cdad9ca994" />
+
 ```python
 b = 2
 ```
-![alt text](image-1.png)
+<img width="239" height="142" alt="image" src="https://github.com/user-attachments/assets/17dc457b-2b12-43db-ace0-9e1cf5377b0c" />
+
 
 ### Mutable Objects: <br>
-Changing the list will affect both variables. This happens because lists are mutable and both variables reference the same object
+Changing the list will affect both variables. This happens because lists are mutable and both variables reference the same object. 
+Mutable Objects: <br>
+Objects that can be changed in place without changing their identity eg list, dict, set, bytearray, user-defined instances.
 ```python
 x = [1, 2]
 y = x
